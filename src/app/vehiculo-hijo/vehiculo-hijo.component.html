@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+      <div class="col">
+
+        <a [routerLink]="['actualiza', indice]">
+        <div>
+          {{indice+1}} {{ vehiculoLista.marca}} {{vehiculoLista.modelo}} {{vehiculoLista.Nmotor}} {{vehiculoLista.color}} {{vehiculoLista.trasmicion}} {{vehiculoLista.anio}} {{vehiculoLista.valor}}
+        </div>
+        </a>
+        <app-caracteristicas-vehiculo (caracteristicasVehiculo)="agregar_caracteristica($event)"></app-caracteristicas-vehiculo>
+        <ul style="list-style: none;">
+            <li *ngFor="let caracteristica of
+            array_caracteristica">
+            {{ caracteristica }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
