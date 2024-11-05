@@ -16,10 +16,25 @@ export class VehiculoHijoComponent {
   @Input() vehiculoLista!: vehiculo;
   @Input() indice!: number; 
   @Input() vehiculos: any[] = [];
+  array_caracteristicas = [''];
 
-  array_caracteristica = [''];
+
+
   agregar_caracteristica(caracteristica:string){
-    this.array_caracteristica.push(caracteristica);
+    this.array_caracteristicas.push(caracteristica);
   }
+  
+  confirmarEliminar(indice: number): void {
+    const confirmar = window.confirm('¿Estás seguro de que quieres eliminar este vehículo?');
+    if (confirmar) {
+      this.eliminarVehiculo(indice);
+    }
+  }
+  
+  eliminarVehiculo(indice: number): void {
+    this.vehiculos.splice(indice, 1);
+    alert('Vehículo eliminado correctamente');
+  }
+  
 
 }
