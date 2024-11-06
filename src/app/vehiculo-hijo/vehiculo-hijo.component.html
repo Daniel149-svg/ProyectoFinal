@@ -4,7 +4,8 @@
             <div>
               {{indice+1}} {{ vehiculoLista.marca}} {{vehiculoLista.modelo}} {{vehiculoLista.Nmotor}} {{vehiculoLista.color}} {{vehiculoLista.trasmicion}} {{vehiculoLista.anio}} {{vehiculoLista.valor}}
                 <a class="btn btn-outline-warning" [routerLink]="['actualiza', indice]" [queryParams]="{accion: '1'}">Actualizar</a>
-                <button class="btn btn-outline-danger ml-1" (click)="confirmarEliminar(indice)">Eliminar</button>
+                <a class="btn btn-outline-danger ml-1" [routerLink]="['eliminar', indice]" [queryParams]="{accion: '2'}">Eliminar</a>
+
             </div>
             <app-caracteristicas-vehiculo (caracteristicasVehiculo)="agregar_caracteristica($event)"></app-caracteristicas-vehiculo>
             <ul style="list-style: none;">

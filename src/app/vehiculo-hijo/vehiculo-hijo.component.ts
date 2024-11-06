@@ -24,17 +24,5 @@ export class VehiculoHijoComponent {
     this.array_caracteristicas.push(caracteristica);
   }
   
-  confirmarEliminar(indice: number): void {
-    const confirmar = window.confirm('¿Estás seguro de que quieres eliminar este vehículo?');
-    if (confirmar) {
-      this.eliminarVehiculo(indice);
-    }
-  }
-  
-  eliminarVehiculo(indice: number): void {
-    this.vehiculos.splice(indice, 1);
-    alert('Vehículo eliminado correctamente');
-  }
-  
 
 }

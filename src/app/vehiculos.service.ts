@@ -47,9 +47,12 @@ export class vehiculosService{
           vehiculoModificar.anio = vehiculo.anio;
           vehiculoModificar.valor = vehiculo.valor;
         }
-        
 
-        
-
-        
+        eliminarVehiculo(indice: number): void {
+          this.vehiculo.splice(indice, 1);
+        }
+      
+        getVehiculos(): any[] {
+          return this.vehiculo;
+        }        
 }
