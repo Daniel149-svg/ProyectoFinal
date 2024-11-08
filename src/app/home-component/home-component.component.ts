@@ -30,7 +30,7 @@ export class HomeComponentComponent {
   cuadroValor: number = 0;
   empleadosService: any;
   caracteristicasVehiculo: any;
-nuevaCaracteristica: any;
+  nuevaCaracteristica: any;
 
 
   constructor(private miServicio: ServicioVehiculoService, private vehiculosService: vehiculosService) { 
