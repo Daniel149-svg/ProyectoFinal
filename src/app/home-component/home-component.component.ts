@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ServicioVehiculoService } from '../servicio-vehiculo.service'; 
 import { vehiculosService } from '../vehiculos.service'; 
+import Swal from 'sweetalert2';
 
 import { vehiculo } from '../vehiculo.models';
 import { VehiculoHijoComponent } from "../vehiculo-hijo/vehiculo-hijo.component";
@@ -54,9 +55,7 @@ export class HomeComponentComponent implements OnInit{
     );
 }
 
-
   guardar_vehiculo(){
-    //if
     let miVehiculo = new vehiculo(this.cuadroMarca, this.cuadroModelo, this.cuadroNmotor, this.cuadroColor, this.cuadroTrasmicion, this.cuadroAnio, this.cuadroValor);
 
     this.vehiculosService.agregar_vehiculo_servicio(miVehiculo);
