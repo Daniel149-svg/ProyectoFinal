@@ -1,0 +1,142 @@
+.portada-container {
+  text-align: center;
+  position: relative;
+  padding: 50px;
+  background: linear-gradient(135deg, rgba(255, 140, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+              src('carro.png') no-repeat center center fixed;
+  background-size: cover;
+  color: rgb(132, 71, 71);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-attachment: fixed;
+  animation: backgroundMove 20s linear infinite;
+}
+
+.portada-title {
+  font-size: 3em;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: fadeInTitle 1.5s ease-out;
+}
+
+.portada-subtitle {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: fadeInSubtitle 2s ease-out;
+}
+
+.button-container {
+  margin-bottom: 20px;
+  animation: fadeInButton 2.5s ease-out;
+}
+
+.btn-animated {
+  background-color: #0c157d;
+  border: none;
+  color: white;
+  padding: 12px 25px;
+  font-size: 1.1em;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.btn-animated:hover {
+  background-color: #e67e00;
+  transform: scale(1.1);
+}
+
+.image-container {
+  animation: moveVehicleImage 3s ease-in-out infinite alternate;
+}
+
+.vehicle-image {
+  max-width: 350px;
+  height: auto;
+  margin: 20px 0;
+  animation: vehicleMove 5s ease-in-out infinite;
+}
+
+.background-animation span {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  animation: bubble 2s infinite ease-in-out;
+}
+
+.background-animation span:nth-child(1) {
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.background-animation span:nth-child(2) {
+  left: 40%;
+  animation-delay: 0.5s;
+}
+
+.background-animation span:nth-child(3) {
+  left: 60%;
+  animation-delay: 1s;
+}
+
+.background-animation span:nth-child(4) {
+  left: 80%;
+  animation-delay: 1.5s;
+}
+
+.background-animation span:nth-child(5) {
+  left: 90%;
+  animation-delay: 2s;
+}
+
+@keyframes bubble {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-30px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInTitle {
+  0% { opacity: 0; transform: translateY(-50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInSubtitle {
+  0% { opacity: 0; transform: translateY(50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInButton {
+  0% { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes moveVehicleImage {
+  0% { transform: translateX(-50px); }
+  50% { transform: translateX(50px); }
+  100% { transform: translateX(-50px); }
+}
+
+@keyframes backgroundMove {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}

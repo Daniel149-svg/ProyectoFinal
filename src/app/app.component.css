@@ -1,0 +1,67 @@
+/* Estilo de la Navbar */
+.navbar {
+    background: linear-gradient(45deg, rgb(23, 8, 104), rgb(0, 0, 0)); /* Gradiente de fondo */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra para darle profundidad */
+  }
+  
+  .navbar-brand {
+    font-size: 1.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: transform 0.3s ease;
+  }
+  
+  .navbar-brand:hover {
+    transform: scale(1.1);
+    color: #ff8c00; /* Cambio de color en hover */
+  }
+  
+  .nav-link {
+    font-size: 1.1em;
+    padding: 10px 20px;
+    margin: 0 15px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    font-weight: 500;
+  }
+  
+  /* Efecto hover para los enlaces */
+  .nav-link:hover {
+    background-color: rgba(255, 140, 0, 0.3); /* Fondo sutil naranja */
+    color: #ff8c00; /* Cambio de color del texto */
+    transform: translateY(-5px); /* Efecto de movimiento en hover */
+  }
+  
+  /* Menú desplegable */
+  .navbar-nav {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .nav-item.active .nav-link {
+    font-weight: bold;
+    color: #ff8c00; /* Color naranja para el enlace activo */
+    text-shadow: 0 0 10px rgba(255, 140, 0, 0.7); /* Efecto de resplandor */
+  }
+  
+  .navbar-toggler-icon {
+    background-color: #ff8c00; /* Icono de la hamburguesa con color personalizado */
+    transition: transform 0.3s ease;
+  }
+  
+  .navbar-toggler-icon:hover {
+    transform: rotate(90deg); /* Rotación al hacer hover */
+  }
+  
+  /* Estilo para el router outlet */
+  router-outlet {
+    margin-top: 20px;
+  }
+  
+  /* Transiciones suaves en la barra */
+  .navbar-nav a {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
