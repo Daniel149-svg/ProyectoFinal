@@ -14,13 +14,13 @@ import { VehiculoHijoComponent } from "../vehiculo-hijo/vehiculo-hijo.component"
   imports: [CommonModule, FormsModule, VehiculoHijoComponent],
   providers: [ServicioVehiculoService],
   templateUrl: './home-component.component.html',
-  styleUrl: './home-component.component.css'
+  styleUrls: ['./home-component.component.css']
 })
-export class HomeComponentComponent implements OnInit{
+export class HomeComponentComponent implements OnInit {
 
   titulo = 'Registro de Vehiculos';
   
-  vehiculos!:vehiculo[];
+  vehiculos!: vehiculo[];
 
   cuadroMarca: string = "";
   cuadroModelo: string = "";
@@ -29,13 +29,8 @@ export class HomeComponentComponent implements OnInit{
   cuadroTrasmicion: string = "";
   cuadroAnio: number = 0;
   cuadroValor: number = 0;
-  empleadosService: any;
-  caracteristicasVehiculo: any;
-  nuevaCaracteristica: any;
-
-
-  constructor(private miServicio: ServicioVehiculoService, private vehiculosService: vehiculosService) { 
-  }
+  
+  constructor(private miServicio: ServicioVehiculoService, private vehiculosService: vehiculosService) { }
 
   ngOnInit(): void {
     this.vehiculosService.obtener_vehiculo().subscribe(
@@ -53,13 +48,44 @@ export class HomeComponentComponent implements OnInit{
             console.error('Error al obtener vehículos:', error);
         }
     );
-}
+  }
 
-  guardar_vehiculo(){
-    let miVehiculo = new vehiculo(this.cuadroMarca, this.cuadroModelo, this.cuadroNmotor, this.cuadroColor, this.cuadroTrasmicion, this.cuadroAnio, this.cuadroValor);
+  guardar_vehiculo() {
+    // Validación de campos vacíos
+    if (
+      this.cuadroMarca === "" || 
+      this.cuadroModelo === "" || 
+      this.cuadroNmotor === "" || 
+      this.cuadroColor === "" || 
+      this.cuadroTrasmicion === "" || 
+      this.cuadroAnio === 0 || 
+      this.cuadroValor === 0
+    ) {
+      // Mostrar alerta de datos incompletos
+      Swal.fire({
+        icon: 'error',
+        title: 'Datos incompletos',
+        text: 'Por favor complete todos los campos antes de guardar.',
+        confirmButtonText: 'Cerrar'
+      });
+      return;  // No guardar si los datos están incompletos
+    }
 
+    // Crear el objeto vehículo
+    let miVehiculo = new vehiculo(
+      this.cuadroMarca,
+      this.cuadroModelo,
+      this.cuadroNmotor,
+      this.cuadroColor,
+      this.cuadroTrasmicion,
+      this.cuadroAnio,
+      this.cuadroValor
+    );
+
+    // Llamar al servicio para agregar el vehículo
     this.vehiculosService.agregar_vehiculo_servicio(miVehiculo);
 
+    // Limpiar los campos después de guardar
     this.cuadroMarca = "";
     this.cuadroModelo = "";
     this.cuadroNmotor = "";
@@ -67,5 +93,13 @@ export class HomeComponentComponent implements OnInit{
     this.cuadroTrasmicion = "";
     this.cuadroAnio = 0;
     this.cuadroValor = 0;
-  } 
+
+    // Mostrar alerta de éxito
+    Swal.fire({
+      icon: 'success',
+      title: 'Vehículo registrado',
+      text: 'El vehículo ha sido registrado correctamente.',
+      confirmButtonText: 'Aceptar'
+    });
+  }
 }
