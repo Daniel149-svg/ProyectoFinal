@@ -1,0 +1,63 @@
+/* Estilos generales para las tarjetas */
+.solicitud-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+  
+  /* Efecto hover para las tarjetas */
+  .solicitud-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Estilo para el título */
+  .solicitud-titulo {
+    color: #333;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Estilo para los párrafos dentro de la tarjeta */
+  .card-body p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilo para el botón de eliminar */
+  .eliminar-btn {
+    margin-top: 15px;
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  /* Efecto hover para el botón de eliminar */
+  .eliminar-btn:hover {
+    background-color: #d32f2f;
+    transform: scale(1.05);
+  }
+  
+  /* Animación de entrada */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .solicitud-card {
+    animation: fadeIn 0.5s ease-out;
+  }
+  

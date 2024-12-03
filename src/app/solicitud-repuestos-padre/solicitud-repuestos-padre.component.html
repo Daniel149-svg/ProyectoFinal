@@ -1,0 +1,10 @@
+<div class="card mt-3 solicitud-card" [@fadeIn]>
+  <div class="card-body">
+    <h5 class="card-title solicitud-titulo">Solicitud #{{ indice + 1 }}</h5>
+    <p><strong>Código:</strong> {{ solicitudLista.codigo }}</p>
+    <p><strong>Descripción:</strong> {{ solicitudLista.descripcion }}</p>
+    <p><strong>Cantidad:</strong> {{ solicitudLista.cantidad }}</p>
+    <p><strong>Urgencia:</strong> {{ solicitudLista.urgencia }}</p>
+    <button class="btn btn-danger eliminar-btn" (click)="eliminarSolicitud(solicitudLista.codigo, indice)">Eliminar</button>
+  </div>
+</div>
