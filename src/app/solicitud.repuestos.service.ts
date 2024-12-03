@@ -46,14 +46,6 @@ export class SolicitudRepuestosService {
   actualizarSolicitud(id: string, solicitud: SolicitudRepuesto): Observable<SolicitudRepuesto> {
     const urlActualizada = `${this.url}/${id}.json`;
     return this.httpClient.put<SolicitudRepuesto>(urlActualizada, solicitud);
-  }
-
-  // Método para eliminar una solicitud
-  eliminarSolicitud(id: string): Observable<void> {
-    const urlEliminar = `${this.url}/${id}.json`;
-    return this.httpClient.delete<void>(urlEliminar);
-  }
-  
-  
+  }  
   
 }

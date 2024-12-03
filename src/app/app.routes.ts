@@ -7,7 +7,6 @@ import { ErrorComponentComponent } from './error-component/error-component.compo
 import { EliminarComponent } from './eliminar/eliminar.component';
 import { PortadaComponent } from './portada/portada.component';
 import { FormularioRepuestosHijoComponent } from './formulario-repuestos-hijo/formulario-repuestos-hijo.component';
-import { EliminarSolicitudComponent } from './eliminar-solicitud/eliminar-solicitud.component';
 
 export const routes: Routes = [
     {path: "", component: HomeComponentComponent},
@@ -16,7 +15,6 @@ export const routes: Routes = [
     { path: "vehiculos", component: VehiculosProyectoComponent},
     { path: "contactanos", component: ContactoVehiculoComponent},
     { path: 'eliminar/:id', component: EliminarComponent },
-    { path: 'eliminar-solicitud/:id', component: EliminarSolicitudComponent },
     { path: 'portada', component: PortadaComponent },
     { path: 'formulario', component: FormularioRepuestosHijoComponent },
     { path: "**", component: ErrorComponentComponent},

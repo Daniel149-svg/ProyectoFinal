@@ -30,22 +30,7 @@ export class SolicitudRepuestosPadreComponent implements OnInit {
       },
       error => console.error('Error al cargar las solicitudes:', error)
     );
-  }
-
-  eliminarSolicitud(id: string, index: number) {
-    this.solicitudService.eliminarSolicitud(id).subscribe(
-      () => {
-        this.solicitudes.splice(index, 1);
-        alert('¡Solicitud eliminada con éxito!');
-      },
-      (error) => {
-        console.error('Error al eliminar la solicitud:', error);
-        alert('Ocurrió un error al intentar eliminar la solicitud. Revisa la consola para más detalles.');
-      }
-    );
-  }
-  
-  
+  }  
 
   
 }
