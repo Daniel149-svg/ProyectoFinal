@@ -7,11 +7,13 @@ import { catchError } from 'rxjs/operators';
 
 // Modelo para una solicitud de repuestos
 export interface SolicitudRepuesto {
+  estado: string;
   id?: string; // Para el ID generado automáticamente
   codigo: string;
   descripcion: string;
   cantidad: number;
   urgencia: string;
+  
 }
 
 @Injectable({
@@ -47,5 +49,11 @@ export class SolicitudRepuestosService {
     const urlActualizada = `${this.url}/${id}.json`;
     return this.httpClient.put<SolicitudRepuesto>(urlActualizada, solicitud);
   }  
+
+    // Método para marcar como realizada una solicitud
+  marcarSolicitudComoRealizada(id: string): Observable<any> {
+    const urlActualizada = `${this.url}/${id}.json`;
+    return this.httpClient.patch(urlActualizada, { estado: 'realizada' });
+  }
   
 }

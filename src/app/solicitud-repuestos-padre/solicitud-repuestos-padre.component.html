@@ -1,9 +1,28 @@
 <div class="card mt-3 solicitud-card" [@fadeIn]>
-  <div class="card-body">
+  <div class="card-header d-flex justify-content-between align-items-center">
     <h5 class="card-title solicitud-titulo">Solicitud #{{ indice + 1 }}</h5>
+    <span class="badge bg-info text-white">Urgencia: {{ solicitudLista.urgencia }}</span>
+  </div>
+  <div class="card-body">
     <p><strong>Código:</strong> {{ solicitudLista.codigo }}</p>
     <p><strong>Descripción:</strong> {{ solicitudLista.descripcion }}</p>
     <p><strong>Cantidad:</strong> {{ solicitudLista.cantidad }}</p>
-    <p><strong>Urgencia:</strong> {{ solicitudLista.urgencia }}</p>  
+    <p>
+      <strong>Estado:</strong>
+      <span *ngIf="solicitudLista.estado === 'realizada'" class="text-success">
+        <i class="fas fa-check-circle"></i> Realizada
+      </span>
+      <span *ngIf="solicitudLista.estado !== 'realizada'" class="text-warning">
+        Pendiente
+      </span>
+    </p>
+  </div>
+  <div class="card-footer text-center">
+    <button 
+      class="btn btn-primary btn-sm mx-2" 
+      [disabled]="solicitudLista.estado === 'realizada'" 
+      (click)="marcarComoRealizada(solicitudLista.id, indice)">
+      {{ solicitudLista.estado === 'realizada' ? 'Solicitud realizada' : 'Marcar como realizada' }}
+    </button>
   </div>
 </div>

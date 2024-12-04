@@ -3,6 +3,7 @@ import { SolicitudRepuesto, SolicitudRepuestosService } from '../solicitud.repue
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SolicitudRepuestosPadreComponent } from '../solicitud-repuestos-padre/solicitud-repuestos-padre.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-formulario-repuestos-hijo',
@@ -44,21 +45,38 @@ export class FormularioRepuestosHijoComponent implements OnInit {
       descripcion: this.cuadroDescripcion,
       cantidad: this.cuadroCantidad,
       urgencia: this.cuadroUgencia,
+      estado: 'pendiente'
     };
-
+  
     this.solicitudService.agregarSolicitud(nuevaSolicitud).subscribe(
       (response) => {
         console.log('Solicitud guardada:', response);
-        alert('¡Solicitud registrada con éxito!');
+  
+        Swal.fire({
+          icon: 'success',
+          title: '¡Solicitud registrada!',
+          text: 'La solicitud ha sido guardada exitosamente.',
+          timer: 2000,
+          showConfirmButton: false
+        });
+  
         this.cargarSolicitudes(); // Recargar las solicitudes después de guardar
-        this.limpiarFormulario();
+        this.limpiarFormulario(); // Limpiar el formulario
       },
       (error) => {
         console.error('Error al guardar la solicitud:', error);
+  
+        // Mostrar notificación de error con SweetAlert2
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Hubo un problema al guardar la solicitud. Por favor, intenta de nuevo.',
+          showConfirmButton: true
+        });
       }
     );
   }
-
+  
   limpiarFormulario() {
     this.cuadroCodigo = '';
     this.cuadroDescripcion = '';
