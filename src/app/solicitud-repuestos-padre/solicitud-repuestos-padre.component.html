@@ -18,11 +18,13 @@
     </p>
   </div>
   <div class="card-footer text-center">
+
     <button 
       class="btn btn-primary btn-sm mx-2" 
       [disabled]="solicitudLista.estado === 'realizada'" 
       (click)="marcarComoRealizada(solicitudLista.id, indice)">
       {{ solicitudLista.estado === 'realizada' ? 'Solicitud realizada' : 'Marcar como realizada' }}
     </button>
+    
   </div>
 </div>

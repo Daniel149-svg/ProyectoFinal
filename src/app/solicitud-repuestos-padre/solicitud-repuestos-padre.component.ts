@@ -37,7 +37,7 @@ export class SolicitudRepuestosPadreComponent implements OnInit {
   marcarComoRealizada(id: string, indice: number): void {
     this.solicitudService.marcarSolicitudComoRealizada(id).subscribe(
       () => {
-        // Actualiza el estado localmente
+        // Actualiza el estado
         this.solicitudes[indice].estado = 'realizada';
   
         Swal.fire({
